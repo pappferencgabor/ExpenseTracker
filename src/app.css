@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.container {
+    width: 350px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 1.6rem;
+}
+
+.balance {
+    margin-bottom: 15px;
+}
+.balance h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.balance h3 {
+    font-size: 1.6rem;
+}
+
+.incomeexpense {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 4px 4px 4px grey;
+}
