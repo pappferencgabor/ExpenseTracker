@@ -6,6 +6,8 @@ const AddTransaction = () => {
 
         <label htmlFor="amount">Amount (negative-expense, postivie-income)</label>
         <input type="number" />
+
+        <button>Add Transaction</button>
     </div>
   )
 }

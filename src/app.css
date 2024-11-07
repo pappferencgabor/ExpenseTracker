@@ -38,7 +38,61 @@ body {
     width: 300px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px;
     box-shadow: 4px 4px 4px grey;
+}
+
+.incomeexpense div p:first-child {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.list {
+    list-style: none;
+}
+.list li {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 4px 4px 4px grey;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.list li button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    visibility: hidden;
+}
+.list li:hover button {
+    visibility: visible;
+}
+
+.minus {
+    border-right: 3px solid red;
+}
+.plus {
+    border-right: 3px solid green;
+}
+
+
+label {
+    display: inline-block;
+}
+input {
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    border: 1px solid rgb(194, 194, 194);
+    margin-bottom: 5px;
+}
+.addtransaction button {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    background-color: #9c88ff;
+    color: white;
+    cursor: pointer;
 }
