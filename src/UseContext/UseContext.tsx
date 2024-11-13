@@ -1,36 +1,44 @@
 import { createContext, ReactNode, useState } from "react"
 
 const initialstate = {
-    transactions: [
-        {
-            id: 1,
-            text: "Flowers",
-            amount: -30
-        },
-        {
-            id: 2,
-            text: "Salary",
-            amount: 300
-        },
-        {
-            id: 2,
-            text: "Book",
-            amount: -10
-        }
-    ]
+    transactions: []
+}
+
+type TransactionType = {
+    id: number,
+    text: string,
+    amount: number
+}
+
+type GlobalState = {
+    transactions: TransactionType[],
+    deleteTransaction: (id: number) => void
+    addTransaction: (t: TransactionType) => void
 }
 
 type childrenProps = {
     children: ReactNode
 }
 
-export const GlobalContext = createContext(initialstate)
+export const GlobalContext = createContext<GlobalState>({
+    transactions:initialstate.transactions,
+    deleteTransaction: () => {},
+    addTransaction: () => {}
+})
 
 const GlobalProvider = ({children}:childrenProps) => {
-    const [transactions, setTransactions] = useState(initialstate.transactions)
+    const [transactions, setTransactions] = useState<TransactionType[]>(initialstate.transactions)
 
-  return (
-    <GlobalContext.Provider value={{transactions}}>
+const deleteTransaction = (id: number) => {
+    setTransactions(transactions.filter(transaction => transaction.id != id))
+}
+
+const addTransaction = (t: TransactionType) => {
+    setTransactions(prev => ([...prev, t]))
+}
+
+return (
+    <GlobalContext.Provider value={{transactions, deleteTransaction, addTransaction}}>
         {children}
     </GlobalContext.Provider>
   )
